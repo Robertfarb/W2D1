@@ -20,8 +20,8 @@ class Board
   end
   
   def move_piece(start_pos, end_pos)
-    raise StandardError.new("Start position empty") if self[start_pos].is_a?(NullPiece)
-    raise StandardError.new("End position occupied") if self[end_pos].is_a?(Piece)
+    raise "Start position empty" if self[start_pos].is_a?(NullPiece)
+    raise "End position occupied" unless self[end_pos].is_a?(NullPiece)
     self[end_pos] = self[start_pos]
     self[start_pos] = NullPiece.new
   end
@@ -43,6 +43,6 @@ end
 if $PROGRAM_NAME == __FILE__
   brd = Board.new
   brd.populate_board
-  brd.move_piece([0,0],[1,0])
+  brd.move_piece([0,0],[3,0])
   brd.display_board
 end
