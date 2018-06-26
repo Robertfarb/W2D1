@@ -87,10 +87,13 @@ class Cursor
       update_pos([-1, 0])
     when :down
       update_pos([1, 0])
+    when :ctrl_c
+      Process.exit(0)
     end
-    
+    nil
   end
 
     def update_pos(diff)
+      @cursor_pos = diff if board.valid_pos?
     end
   end

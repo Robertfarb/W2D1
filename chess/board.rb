@@ -26,6 +26,10 @@ class Board
     self[start_pos] = NullPiece.new
   end
   
+  def valid_pos?(pos)
+    pos.all? {|num| num.between?(0, 8)}  
+  end
+  
   private
   
   def [] (pos)
