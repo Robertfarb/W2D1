@@ -4,8 +4,12 @@ class Piece
 
   end
   
+  def letter
+    "P"
+  end
+  
   def inspect
-    "PCE"  
+    "P"  
   end
   
 end
@@ -13,7 +17,11 @@ end
 class NullPiece < Piece
   
   def inspect
-    "NPC"
+    "_"
+  end
+  
+  def letter
+    "_"
   end
   
 end

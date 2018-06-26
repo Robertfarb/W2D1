@@ -1,7 +1,8 @@
 require_relative "piece"
+require_relative "display"
 require "byebug"
 class Board
-  
+  attr_reader :grid
   def initialize 
     @grid = Array.new (8) { Array.new(8, NullPiece.new)}
   end
@@ -49,4 +50,6 @@ if $PROGRAM_NAME == __FILE__
   brd.populate_board
   brd.move_piece([0,0],[3,0])
   brd.display_board
+  display = Display.new(brd)
+  display.render
 end
